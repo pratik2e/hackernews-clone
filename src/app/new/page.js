@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Box,Text,Container } from "@radix-ui/themes";
-import Link from "next/link";
+import { Progress } from "@/components/ui/progress";
 const Page = () => {
   const [stories, setStories] = useState([]);
 
@@ -47,9 +47,11 @@ const Page = () => {
   return (
     <div>
       <Box>
+      <Container size="3">
+      { <Progress  value={100} />}
         {stories.map((story) => (
           <div key={story.id} className="space-y-2 rounded-md p-4 py-4">
-            <Container size="3">
+            
             <p className="text-lg font-bold">{'Sr. No: ' + story.index}</p>
               <Text
                 as="div"
@@ -68,9 +70,10 @@ const Page = () => {
                </a>
               </p>
               <hr />
-            </Container>
+            
           </div>
         ))}
+        </Container>
       </Box>
     </div>
   );

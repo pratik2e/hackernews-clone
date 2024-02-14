@@ -91,11 +91,12 @@ const Page = () => {
           borderRadius: "var(--radius-3)",
         }}
       >
-        {loading && <Progress value={80} />}
+        <Container size="3">
+        {loading && <Progress  value={100} />}
         {!loading &&
           stories.map((story) => (
             <div key={story.id} className="space-y-2 rounded-md p-4 py-4">
-              <Container size="3">
+              
                 <p className="text-lg font-bold">{"Sr. No: " + story.index}</p>
                 <Text
                   as="div"
@@ -115,9 +116,9 @@ const Page = () => {
                   </a>
                 </p>
                 <hr />
-              </Container>
             </div>
           ))}
+           </Container>
       </Box>
       <div>
         <Pagination>
